@@ -10,7 +10,11 @@ namespace VerticalSliceDemo.Product
         {
             public void MapEndpoint(IEndpointRouteBuilder app)
             {
-                app.MapPost("product", Handler).WithTags("Product");
+                app
+                    .MapPost("product", Handler)
+                    .WithTags("Product")
+                    .Produces<Response>()
+                    .WithOpenApi();
             }
         }
 
